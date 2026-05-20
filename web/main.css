@@ -1,0 +1,179 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+html {
+    scroll-behavior: smooth;
+}
+
+@media screen and (prefers-reduced-motion: reduce) {
+
+    html,
+    body {
+        scroll-behavior: auto;
+    }
+}
+
+body {
+    padding-top: 24px;
+    padding-bottom: 24px;
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #151515;
+}
+
+* {
+    font-family: "Inter", system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-optical-sizing: auto;
+    box-sizing: border-box;
+    color: #ededec;
+}
+
+h1 {
+    font-weight: 600;
+    font-size: 1.5rem;
+    line-height: 2rem;
+}
+
+h2 {
+    font-weight: 600;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    margin-bottom: 0.5rem;
+    margin-top: 2em;
+
+}
+
+p {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.75;
+    color: #dddddd;
+}
+
+#header p {
+    color: #a1a09a;
+    margin: 0;
+}
+
+#header>h1 {
+    margin-bottom: 0;
+}
+
+/* Hide ugly number arrows */
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button,
+{
+-webkit-appearance: none;
+}
+
+input {
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    background-color: #202020;
+    color: #dddddd;
+    border: 1px solid #313131;
+    border-radius: 8px;
+    transition: all 75ms linear;
+
+    &:focus {
+        background-color: #202020;
+        box-shadow:
+            0 0 0 2px #151515,
+            0 0 0 4.5px white;
+        outline: none;
+    }
+}
+
+button {
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    background-color: #242424;
+    color: #dddddd;
+    border: 1px solid #313131;
+    border-radius: 8px;
+    transition: all 75ms linear;
+
+    &:hover {
+        background-color: #202020;
+    }
+
+    &:focus {
+        background-color: #202020;
+        box-shadow:
+            0 0 0 2px #151515,
+            0 0 0 4.5px white;
+        outline: none;
+    }
+}
+
+hr {
+    border: 1px solid #dddddd;
+}
+
+.ft {
+    padding: 8px 12px;
+    margin: 0;
+}
+
+.ft:target {
+    background-color: rgba(253, 246, 194, 0.4);
+    border-radius: 4px;
+    font-weight: 700;
+}
+
+#back_to_top {
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+}
+
+.img {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    &>p {
+        margin: 0;
+        width: 100%;
+        text-align: center;
+    }
+}
+
+.img_container {
+    margin: 0;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 8px;
+}
+
+.img_container>.background {
+    filter: blur(8px);
+    z-index: -1;
+    position: absolute;
+    width: 100%;
+}
+
+.img_container>.front_image {
+    width: 100%;
+    object-fit: contain;
+    max-height: 340px;
+}

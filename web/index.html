@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>ALT 3 - Report</title>
+    <link rel="stylesheet" href="./main.css" />
+</head>
+
+<body id="body">
+    <a href="#body" id="back_to_top"
+        style="width: 40px; height: 40px; padding: 0; border-radius: 8px; text-align: center; display: flex; align-items: center; justify-content: center; background-color: #242424; transition: all 75ms linear;"><svg
+            xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            class="lucide lucide-arrow-up-from-line-icon lucide-arrow-up-from-line">
+            <path d="m18 9-6-6-6 6" />
+            <path d="M12 3v14" />
+            <path d="M5 21h14" />
+        </svg></a>
+
+    <div id="header">
+        <h1>ALT 3 - Report</h1>
+        <p>By James Doyle</p>
+    </div>
+
+    <h2>Investigation & Plan</h2>
+    <p>
+        The artefact is a model which simulates the number of tourists which will enter a country using the given
+        inputs. I researched various sources across the internet for data relating to how various factors – mainly
+        inflation, crime, disease and capacity – affect the amount of tourists which will travel to a country. These
+        sources are listed in the footnote at the end. While I did attempt to find similar models, all that I found were
+        how tourism affects the countries economy, or what defines tourism. The target users of this model are
+        organisations like Fáilte Ireland, the Department of Enterprise, Tourism and Employment, or any Irish government
+        body which may need to know how many tourists there may be in a given year. This may also be useful to
+        non-governmental entities, e.g. people who run tourist attractions may benefit from extrapolating their local
+        tourist numbers from this.
+
+        <a href="#ft-1"><sup>[1]</sup></a>
+        <a href="#ft-2"><sup>[2]</sup></a>
+        <a href="#ft-3"><sup>[3]</sup></a>
+    </p>
+    <h2>Design</h2>
+
+    <h2>Investigation & Plan</h2>
+
+    <h2>Graphs</h2>
+    <div style="display: flex; gap: 8px;">
+        <form>
+            <p>Configure Graph</p>
+            <div style="display: flex; flex-direction: column; gap: 1px; margin-top: 12px;">
+                <p style="margin: 0;">Base no. of tourists</p>
+                <input type="number" placeholder="Default: 1000" id="cr_base_tourist_numbers" />
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 1px; margin-top: 12px;">
+                <p style="margin: 0;">Crime Rates</p>
+                <input type="text" placeholder="[0, 1, 5] etc." id="crime_rates_input" />
+            </div>
+            <button type="button" style="margin-top: 12px; width: 100%;"
+                onclick="crime_rate_chart_update(document.getElementById('cr_base_tourist_numbers').value, document.getElementById('crime_rates_input').value)">Change
+                Graph</button>
+        </form>
+        <div>
+            <canvas id="crime_rate_chart"></canvas>
+            <p>With all factors except crime rate cancelled out, base tourist number of 1,000,000.</p>
+        </div>
+    </div>
+
+    <div class="img">
+        <div class="img_container">
+            <img class="background" src="./public/test.webp" />
+            <img class="front_image" src="./public/test.webp" />
+        </div>
+        <p>Someone's milk is sitting on their porch</p>
+    </div>
+
+    <hr style="margin-top: 24px;" />
+
+    <div class="footnotes">
+        <p class="ft" id="ft-1">[1]: Shchokin, R., Maziychuk, V., Mykhailyk, O., Kolomiiets, A., Akifzade, S., &
+            Tymoshenko, Y.
+            (2023). THE IMPACT OF THE
+            CRIME RATE ON THE HOSPITALITY AND TOURISM INDUSTRY IN THE EU COUNTRIES. GeoJournal of Tourism and Geosites,
+            46(1),
+            135–147. <a href="https://doi.org/10.30892/gtg.46115-1009">https://doi.org/10.30892/gtg.46115-1009</a></p>
+
+        <p class="ft" id="ft-2">[2]: Pan, L., Dwumfour, R. (Unknown date) Inflation Anchoring and Behavioural Tourism
+            Demand.
+            School of
+            Accounting, Economics
+            and Finance, Curtin University, Australia., Centre for Development Economics and Sustainability, Monash
+            University,
+            Australia. <a
+                href="https://dwumfour.github.io/pdf/wip/Lei_Dwumfour_tourism_and_inflation.pdf">https://dwumfour.github.io/pdf/wip/Lei_Dwumfour_tourism_and_inflation.pdf</a>
+        </p>
+
+        <p class="ft" id="ft-3">[3]: Roman, Michał & Roman, Monika & Grzegorzewska, Emilia & Pietrzak, Piotr & Roman,
+            Kamil.
+            (2022).
+            Influence of the
+            COVID-19 Pandemic on Tourism in European Countries: Cluster Analysis Findings. Sustainability. 14. 1602.
+            10.3390/su14031602.</p>
+    </div>
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="./main.js"></script>
+
+</html>
