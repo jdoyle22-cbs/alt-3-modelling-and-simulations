@@ -43,25 +43,59 @@
     <h2>Investigation & Plan</h2>
 
     <h2>Graphs</h2>
-    <div style="display: flex; gap: 8px;">
-        <form>
-            <p>Configure Graph</p>
-            <div style="display: flex; flex-direction: column; gap: 1px; margin-top: 12px;">
-                <p style="margin: 0;">Base no. of tourists</p>
-                <input type="number" placeholder="Default: 1000" id="cr_base_tourist_numbers" />
+    <p>For all graphs it is assumed that no other factors are affecting the tourist numbers other than the one shown
+        in the graph.</p>
+
+    <div style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 24px;">
+        <hr style="margin-top: 24px; width: 100%;" />
+        <div style="display: flex; gap: 8px;">
+            <form>
+                <p><b>Configure Graph</b></p>
+                <div style="display: flex; flex-direction: column; gap: 1px; margin-top: 12px;">
+                    <p style="margin: 0;">Base no. of tourists</p>
+                    <input type="number" placeholder="Default: 1000" id="cr_base_tourist_numbers" />
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 1px; margin-top: 12px;">
+                    <p style="margin: 0;">Crime Rates</p>
+                    <input type="text" placeholder="[0, 1, 5] etc." id="cr_input" />
+                </div>
+                <div style="display: flex; flex-direction: row; gap: 4px; margin-top: 12px;">
+                    <p style="margin: 0;">Allow tourist no. increase (e.g. negative rate)?</p>
+                    <input type="checkbox" id="cr_allow_increase_input" name="cr_allow_increase_input" />
+                </div>
+                <button type="button" style="margin-top: 12px; width: 100%;"
+                    onclick="crime_rate_chart_update(document.getElementById('cr_base_tourist_numbers').value, document.getElementById('cr_input').value, document.getElementById('cr_allow_increase_input').checked)">Change
+                    Graph</button>
+            </form>
+            <div>
+                <canvas id="crime_rate_chart"></canvas>
             </div>
-            <div style="display: flex; flex-direction: column; gap: 1px; margin-top: 12px;">
-                <p style="margin: 0;">Crime Rates</p>
-                <input type="text" placeholder="[0, 1, 5] etc." id="crime_rates_input" />
-            </div>
-            <button type="button" style="margin-top: 12px; width: 100%;"
-                onclick="crime_rate_chart_update(document.getElementById('cr_base_tourist_numbers').value, document.getElementById('crime_rates_input').value)">Change
-                Graph</button>
-        </form>
-        <div>
-            <canvas id="crime_rate_chart"></canvas>
-            <p>With all factors except crime rate cancelled out, base tourist number of 1,000,000.</p>
         </div>
+        <hr style="margin-top: 24px; width: 100%;" />
+        <div style="display: flex; gap: 8px;">
+            <form>
+                <p><b>Configure Graph</b></p>
+                <div style="display: flex; flex-direction: column; gap: 1px; margin-top: 12px;">
+                    <p style="margin: 0;">Base no. of tourists</p>
+                    <input type="number" placeholder="Default: 1000" id="ir_base_tourist_numbers" />
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 1px; margin-top: 12px;">
+                    <p style="margin: 0;">Inflation Rates</p>
+                    <input type="text" placeholder="[0, 1, 5] etc." id="ir_input" />
+                </div>
+                <div style="display: flex; flex-direction: row; gap: 4px; margin-top: 12px;">
+                    <p style="margin: 0;">Allow tourist no. increase (e.g. negative rate)?</p>
+                    <input type="checkbox" id="ir_allow_increase_input" name="ir_allow_increase_input" />
+                </div>
+                <button type="button" style="margin-top: 12px; width: 100%;"
+                    onclick="inflation_rate_chart_update(document.getElementById('ir_base_tourist_numbers').value, document.getElementById('ir_input').value, document.getElementById('ir_allow_increase_input').checked)">Change
+                    Graph</button>
+            </form>
+            <div>
+                <canvas id="inflation_rate_chart"></canvas>
+            </div>
+        </div>
+        <hr style="margin-top: 24px; width: 100%;" />
     </div>
 
     <div class="img">

@@ -123,7 +123,7 @@ button {
 }
 
 hr {
-    border: 1px solid #dddddd;
+    border: 1px solid #313131;
 }
 
 .ft {
@@ -176,4 +176,8 @@ hr {
     width: 100%;
     object-fit: contain;
     max-height: 340px;
+}
+
+input[type=checkbox] {
+    accent-color: white;
 }
