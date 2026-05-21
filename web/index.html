@@ -39,8 +39,14 @@
         <a href="#ft-3"><sup>[3]</sup></a>
     </p>
     <h2>Design</h2>
+    <p>
+
+    </p>
 
     <h2>Investigation & Plan</h2>
+    <p>
+
+    </p>
 
     <h2>Graphs</h2>
     <p>For all graphs it is assumed that no other factors are affecting the tourist numbers other than the one shown
@@ -48,63 +54,13 @@
 
     <div style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 24px;">
         <hr style="margin-top: 24px; width: 100%;" />
-        <div style="display: flex; gap: 8px;">
-            <form>
-                <p><b>Configure Graph</b></p>
-                <div style="display: flex; flex-direction: column; gap: 1px; margin-top: 12px;">
-                    <p style="margin: 0;">Base no. of tourists</p>
-                    <input type="number" placeholder="Default: 1000" id="cr_base_tourist_numbers" />
-                </div>
-                <div style="display: flex; flex-direction: column; gap: 1px; margin-top: 12px;">
-                    <p style="margin: 0;">Crime Rates</p>
-                    <input type="text" placeholder="[0, 1, 5] etc." id="cr_input" />
-                </div>
-                <div style="display: flex; flex-direction: row; gap: 4px; margin-top: 12px;">
-                    <p style="margin: 0;">Allow tourist no. increase (e.g. negative rate)?</p>
-                    <input type="checkbox" id="cr_allow_increase_input" name="cr_allow_increase_input" />
-                </div>
-                <button type="button" style="margin-top: 12px; width: 100%;"
-                    onclick="crime_rate_chart_update(document.getElementById('cr_base_tourist_numbers').value, document.getElementById('cr_input').value, document.getElementById('cr_allow_increase_input').checked)">Change
-                    Graph</button>
-            </form>
-            <div>
-                <canvas id="crime_rate_chart"></canvas>
-            </div>
-        </div>
+        <rate-comparison-chart graph_id="cr" rate_name="Crime Rate"></rate-comparison-chart>
         <hr style="margin-top: 24px; width: 100%;" />
-        <div style="display: flex; gap: 8px;">
-            <form>
-                <p><b>Configure Graph</b></p>
-                <div style="display: flex; flex-direction: column; gap: 1px; margin-top: 12px;">
-                    <p style="margin: 0;">Base no. of tourists</p>
-                    <input type="number" placeholder="Default: 1000" id="ir_base_tourist_numbers" />
-                </div>
-                <div style="display: flex; flex-direction: column; gap: 1px; margin-top: 12px;">
-                    <p style="margin: 0;">Inflation Rates</p>
-                    <input type="text" placeholder="[0, 1, 5] etc." id="ir_input" />
-                </div>
-                <div style="display: flex; flex-direction: row; gap: 4px; margin-top: 12px;">
-                    <p style="margin: 0;">Allow tourist no. increase (e.g. negative rate)?</p>
-                    <input type="checkbox" id="ir_allow_increase_input" name="ir_allow_increase_input" />
-                </div>
-                <button type="button" style="margin-top: 12px; width: 100%;"
-                    onclick="inflation_rate_chart_update(document.getElementById('ir_base_tourist_numbers').value, document.getElementById('ir_input').value, document.getElementById('ir_allow_increase_input').checked)">Change
-                    Graph</button>
-            </form>
-            <div>
-                <canvas id="inflation_rate_chart"></canvas>
-            </div>
-        </div>
+        <rate-comparison-chart graph_id="ir" rate_name="Inflation Rate"></rate-comparison-chart>
         <hr style="margin-top: 24px; width: 100%;" />
     </div>
 
-    <div class="img">
-        <div class="img_container">
-            <img class="background" src="./public/test.webp" />
-            <img class="front_image" src="./public/test.webp" />
-        </div>
-        <p>Someone's milk is sitting on their porch</p>
-    </div>
+    <image-container src="./public/test.webp"></image-container>
 
     <hr style="margin-top: 24px;" />
 
@@ -137,5 +93,20 @@
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="./main.js"></script>
+<script type="module" src="./components//rate_comparison_chart.js"></script>
+<script>
+    // Setup charts
+
+    const cr_rate_chart = document.querySelector("rate-comparison-chart[graph_id='cr']");
+    cr_rate_chart.calculate = (base, rate) => {
+        return base * (1 - (rate * 0.07 / 100));
+    };
+
+    const ir_rate_chart = document.querySelector("rate-comparison-chart[graph_id='ir']");
+    ir_rate_chart.calculate = (base, rate) => {
+        return base * (1 - ((rate * 2) / 100));
+    };
+</script>
+<script type="module" src="./components/image_container.js"></script>
 
 </html>
